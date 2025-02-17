@@ -1,0 +1,293 @@
+/* Animated gradient background */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #000000, #2d3436);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+@keyframes gradientBG {
+  0% {
+      background-position: 0% 50%;
+  }
+
+  50% {
+      background-position: 100% 50%;
+  }
+
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+/* Full-width container */
+.gasless-container {
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  max-width: 1200px; /* Added max-width to maintain desktop size */
+  margin: 0 auto; /* Center the container */
+}
+
+/* Glassmorphism wallet card */
+.wallet-card {
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 32px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0%,
+  100% {
+      transform: translateY(0);
+  }
+
+  50% {
+      transform: translateY(-10px);
+  }
+}
+
+/* Glowing wallet address */
+.wallet-address {
+  font-size: 16px;
+  color: white;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  margin-bottom: 30px;
+  word-break: break-all;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+
+  50% {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Token info section */
+.token-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.token-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  animation: pulse 3s infinite;
+  /* Ensure content doesn't overflow */
+  overflow: hidden;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+
+  50% {
+      transform: scale(1.02);
+  }
+
+  100% {
+      transform: scale(1);
+  }
+}
+
+.token-label {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.token-value {
+  font-size: 24px;
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  /* Prevent text overflow */
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+/* Add this class to the specific token-value that needs to be shorter */
+.allowance-value {
+  font-size: 20px; /* Adjust as needed */
+}
+
+/* Input fields container */
+.input-field-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between the input fields */
+  margin-bottom: 20px;
+}
+
+/* Animated input fields */
+.input-field {
+  width: 100%;
+}
+
+.input-field input {
+  width: calc(100% - 0px); /* The width of the input is 100% minus the border */
+  padding: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* To include padding and border in the element's total width and height */
+}
+
+.input-field input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.input-field input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Gradient buttons with hover effects */
+.button {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  border: none;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.approve-button {
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.approve-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3);
+}
+
+.transfer-button {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.transfer-button:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+}
+
+.button:disabled {
+  background: linear-gradient(45deg, #a8a8a8, #7a7a7a);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Animated status message */
+.status-message {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideIn 0.5s ease-out;
+  box-sizing: border-box;
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .wallet-card {
+      padding: 20px;
+  }
+
+  .token-info {
+      grid-template-columns: 1fr;
+  }
+
+  .token-value {
+      font-size: 20px;
+  }
+
+  .button {
+      padding: 16px;
+      font-size: 16px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
